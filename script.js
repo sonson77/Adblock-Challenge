@@ -75,9 +75,7 @@ window.onload = () => {
       //toLocaleString()
       result.value += buttonValue;
       try {
-        preResult.innerHTML = Function(
-          "return " + result.value.toLocaleString()
-        )();
+        preResult.innerHTML = Function("return " + result.value)();
       } catch (error) {}
     } else {
       switch (buttonValue) {
