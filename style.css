@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #7c959c;
+  padding: 20px;
+  position: relative;
+  height: 100vh;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #d9d9d9;
+  z-index: -1;
+  animation-fill-mode: forwards;
+  animation-name: loadTop;
+  animation-duration: 1000ms;
+  animation-iteration-count: 1;
+}
+.bodyWrapper {
+  display: flex;
+  align-items: self-start;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 100px;
+  height: 100%;
+  border: 1px solid #fff;
+}
+h1 {
+  font-size: 6rem;
+  padding-bottom: 2rem;
+  font-weight: 900;
+  line-height: 0.7em;
+  color: #323a3d;
+  padding-right: 40px;
+}
+h1 span {
+  font-weight: 400;
+  padding-bottom: 20px;
+  font-size: 0.5em;
+  font-style: italic;
+  display: block;
+  padding: 0;
+}
+
+.calculatorWrapper {
+  background-color: #323a3d;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  max-width: 350px;
+  margin-top: 40px;
+  align-self: self-end;
+  animation-name: loadFrame;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-duration: 1000ms;
+}
+.calculatorWrapper .header {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+#result {
+  background-color: unset;
+  font-size: 40px;
+  color: #fff;
+  font-weight: 900;
+  border: 0;
+  text-align: end;
+  outline: unset;
+}
+#preResult {
+  display: block;
+  margin-left: auto;
+  color: #798c93;
+  font-size: 32px;
+  font-weight: 700;
+  padding-bottom: 20px;
+  min-height: 60px;
+  position: relative;
+  display: flex;
+}
+#preResult::before {
+  content: "=";
+  left: -20px;
+  position: absolute;
+  display: inline-block;
+}
+.buttonWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+}
+.buttonWrapper button {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  display: block;
+  font-size: 24px;
+  border: 1px solid #323a3d;
+  cursor: pointer;
+}
+.buttonWrapper button:hover {
+  transition: ease-out all 0.5s;
+  background-color: #d0dcdf;
+}
+.buttonWrapper button:active {
+  transition: ease-out all 0.5s;
+  background-color: #e5d1ca;
+}
+.buttonWrapper button[value="eval"] {
+  grid-column: 1/5;
+}
+.buttonWrapper button[value="+"],
+.buttonWrapper button[value="-"],
+.buttonWrapper button[value="*"],
+.buttonWrapper button[value="/"] {
+  background-color: #67a2b4;
+  color: #fff;
+}
+.buttonWrapper button[value="ce"] {
+  background-color: #e87b62;
+  color: #fff;
+  grid-column: 1/3;
+}
+.buttonWrapper button[value="+"]:hover,
+.buttonWrapper button[value="-"]:hover,
+.buttonWrapper button[value="*"]:hover,
+.buttonWrapper button[value="*"]:hover,
+.buttonWrapper button[value="ce"]:hover {
+  background-color: #5b95a6;
+}
+
+@media all and (max-width: 800px) {
+  .bodyWrapper {
+    padding: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+    align-self: self-end;
+  }
+  h1 {
+    font-size: 3em;
+  }
+}
+@media all and (max-width: 400px) {
+  .bodyWrapper {
+    font-size: 14px;
+    padding: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .calculatorWrapper {
+    margin-top: 20px;
+  }
+  h1 {
+    font-size: 3em;
+    padding-bottom: 0.5em;
+  }
+}
+
+@keyframes loadFrame {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes loadTop {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 40%;
+  }
+}
